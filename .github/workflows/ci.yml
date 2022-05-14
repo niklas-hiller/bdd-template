@@ -10,7 +10,7 @@ env:
   ENVIRONMENT: dev
   
 permissions:
-  actions: write
+  checks: write
       
 jobs:
   test:
