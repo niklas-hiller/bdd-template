@@ -22,13 +22,15 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install requirements
+      - name: 'Install requirements'
         run: pip install -r requirements.txt
-      - name: Run tests
+      - name: 'Run tests'
         run: sh ./run-tests.sh
-      - name: 'Upload Cucumber Report'
+      - name: 'Upload Test Results'
         uses: actions/upload-artifact@v3
         with:
-          name: cucumber-report
-          path: cucumber.json
+          name: test-reports
+          path: |
+            cucumber.json
+            report.xml
           retention-days: 5
