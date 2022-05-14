@@ -2,7 +2,7 @@ import pytest, os
 
 from external.xray import XrayConnector
 
-xray = XrayConnector("localhost:5000", "someUsername", "somePassword")
+xray = XrayConnector("localhost:8080", "admin", "admin")
 XRAY_MARKER = "xray"
 
 def pytest_addoption(parser : pytest.Parser):
