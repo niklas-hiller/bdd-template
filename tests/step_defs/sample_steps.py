@@ -1,5 +1,5 @@
 from pytest_bdd import given, when, then
-from tests.parsers import Parser
+from tests.parser_defs.parsers import Parser
 
 from obj_defs.time import Time
 
