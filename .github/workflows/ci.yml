@@ -8,6 +8,9 @@ on:
       
 env:
   ENVIRONMENT: dev
+  
+permissions:
+  actions: write
       
 jobs:
   test:
