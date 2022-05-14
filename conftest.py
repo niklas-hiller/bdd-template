@@ -5,7 +5,7 @@ from external.xray import XrayConnector
 xray = XrayConnector("localhost:5000", "someUsername", "somePassword")
 XRAY_MARKER = "xray"
 
-def pytest_addoption(parser):
+def pytest_addoption(parser : pytest.Parser):
     parser.addoption(
         "--env",
         action = "store",
@@ -17,7 +17,7 @@ def pytest_addoption(parser):
         help = "Test Execution Key for the Cucumber Tests from Jira"
     )
     
-def pytest_configure(config):
+def pytest_configure(config : pytest.Config):
     env = config.getoption("env")
     if env:
         print(f"Tests are running on {env} environment.")
@@ -35,7 +35,7 @@ def pytest_configure(config):
     else:
         os.environ["FEATURE_FILE"] = "sample.feature"
     
-def pytest_collection_modifyitems(items, config):
+def pytest_collection_modifyitems(items : list[pytest.Function], config : pytest.Config):
     if config.getoption("-m").replace(" ", "") == XRAY_MARKER:
         exec_key = config.getoption("key")
         run_those = xray.get_test_keys(exec_key)
@@ -47,7 +47,7 @@ def pytest_collection_modifyitems(items, config):
             if run_this:
                 item.add_marker(XRAY_MARKER)
                 
-def pytest_unconfigure(config):
+def pytest_unconfigure(config : pytest.Config):
     if config.getoption("-m").replace(" ", "") == XRAY_MARKER:
         exec_key = config.getoption("key")
         
