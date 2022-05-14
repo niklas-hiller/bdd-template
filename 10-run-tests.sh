@@ -2,5 +2,5 @@
 
 echo "Running pytest in ${ENVIRONMENT}."
 pytest --env=${ENVIRONMENT} \
---cucumberjson=cucumber.json \
---junitxml=report.xml
+--cucumberjson=${CUCUMBER_PATH} \
+--junitxml=${JUNIT_PATH}
