@@ -3,7 +3,7 @@ Feature: Check if time passes correctly
 
     Scenario Outline: Five minutes will pass and time will be updated
         Given The time is <time_before>
-        When Five minutes pass
+        When 5 minutes pass
         Then The time is <time_after>
 
         Examples:

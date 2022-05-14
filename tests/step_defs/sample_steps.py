@@ -11,9 +11,13 @@ def some_setup(time_before : Time):
     assert isinstance(time_before, Time)
     return time_before
 
-@when("Five minutes pass")
-def some_action(time : Time):
-    time.minutes += 5
+@when(Parser("{minutes_amount} minutes pass",
+             converters = {
+                    "minutes_amount": int
+                  }))
+def some_action(time : Time, minutes_amount : int):
+    assert isinstance(minutes_amount, int)
+    time.minutes += minutes_amount
 
 @then(Parser("The time is {time_after}",
              converters = {
