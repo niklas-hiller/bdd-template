@@ -35,6 +35,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           report_paths: 'report.xml'
+      - uses: deblockt/cucumber-report-annotations-action@v1.7
+        if: always() # always run even if the previous step fails
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          path: "cucumber.json"
       - name: 'Upload Test Results'
         uses: actions/upload-artifact@v3
         with:
