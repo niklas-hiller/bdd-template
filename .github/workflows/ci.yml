@@ -6,6 +6,9 @@ on:
     branches:
       - main
       
+env:
+  ENVIRONMENT: dev
+      
 jobs:
   test:
     runs-on: ubuntu-latest
