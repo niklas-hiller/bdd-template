@@ -8,7 +8,6 @@ from obj_defs.time import Time
                     "time_before": Time.parse
                   }), target_fixture = "time")
 def some_setup(time_before : Time):
-    print("test")
     assert isinstance(time_before, Time)
     return time_before
 
