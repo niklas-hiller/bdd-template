@@ -48,6 +48,6 @@ jobs:
         with:
           name: test-reports
           path: |
-            ${{ CUCUMBER_PATH }}
-            ${{ JUNIT_PATH }}
+            $CUCUMBER_PATH
+            $JUNIT_PATH
           retention-days: 5
