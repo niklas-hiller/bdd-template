@@ -22,6 +22,6 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Run tests
-        run: run-tests.sh
+        run: ./run-tests.sh
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
